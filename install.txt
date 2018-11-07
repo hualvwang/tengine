@@ -1,0 +1,32 @@
+./configure --prefix=/usr/local/nginx \
+--with-ld-opt=-Wl,-rpath,/usr/local/lib:/opt/openresty/luajit/lib \
+--with-cc-opt=-DTCP_FASTOPEN=23 \
+--sbin-path=/usr/local/nginx/sbin/nginx \
+--conf-path=/etc/nginx/nginx.conf \
+--error-log-path=/data/logs/error.log \
+--http-log-path=/data/logs/access.log \
+--pid-path=/var/run/nginx.pid \
+--lock-path=/var/lock/nginx.lock \
+--user=nginx \
+--group=nginx \
+--with-pcre=deps/pcre-8.36 \
+--with-jemalloc=deps/jemalloc \
+--with-luajit-lib=/usr/lib/ \
+--with-luajit-inc=/usr/include/luajit-2.1/ \
+--with-lua-inc=/usr/include/luajit-2.1/ \
+--with-lua-lib=/usr/lib/ \
+--add-module=./modules/ngx_http_lua_module \
+--add-module=deps/ngx_devel_kit-0.2.19 \
+--add-module=./modules/ngx_debug_pool \
+--add-module=deps/nginx_tcp_proxy_module \
+--with-openssl=deps/openssl-1.0.2n \
+--with-openssl-opt='-DOPENSSL_THREADS -pthread -D_REENTRANT -D_THREAD_SAFE -D_THREADSAFE' \
+--with-http_upstream_check_module \
+--with-http_gzip_static_module \
+--with-http_v2_module \
+--with-http_ssl_module \
+--with-http_realip_module \
+--with-http_degradation_module \
+--with-file-aio \
+--with-ipv6 \
+--with-force-exit
